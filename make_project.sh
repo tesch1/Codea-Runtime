@@ -18,3 +18,5 @@ rm "$1/CodeaTemplate.xcodeproj/xcshareddata/xcschemes/CodeaTemplate.xcscheme.bak
 
 #Copy Resources over
 #cp $ICON_FILE "$1/Icon.png"
+
+echo "created xcode project in ./$1/CodeaTemplate.xcodeproj"
