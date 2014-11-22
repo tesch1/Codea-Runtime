@@ -3,6 +3,11 @@
 # Must be run from the directory containing CodeaTemplate
 # Needs a lot of work - including Icons, setting bundle id, installing codea project, etc
 
+if [ "x$1" = "x" ] ; then
+    echo "usage: make_project <project_name>"
+    exit
+fi
+
 cp -r CodeaTemplate "$1"
 sed -i .bak "s/___PROJECTNAME___/$1/g" "$1/CodeaTemplate.xcodeproj/project.pbxproj"
 rm "$1/CodeaTemplate.xcodeproj/project.pbxproj.bak"
