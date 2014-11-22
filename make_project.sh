@@ -8,15 +8,31 @@ if [ "x$1" = "x" ] ; then
     exit
 fi
 
-cp -r CodeaTemplate "$1"
-sed -i .bak "s/___PROJECTNAME___/$1/g" "$1/CodeaTemplate.xcodeproj/project.pbxproj"
-rm "$1/CodeaTemplate.xcodeproj/project.pbxproj.bak"
+if [ "$1" = "CodeaTemplate" ] ; then
+    echo "cant make the template from the template"
+    exit
+fi
 
-sed -i .bak "s/___PROJECTNAME___/$1/g" "$1/CodeaTemplate.xcodeproj/xcshareddata/xcschemes/CodeaTemplate.xcscheme"
-rm "$1/CodeaTemplate.xcodeproj/xcshareddata/xcschemes/CodeaTemplate.xcscheme.bak"
+PROJ="${1//[[:space:]]/}"
 
+cp -r CodeaTemplate "${PROJ}"
+sed -i .bak "s/___PROJECTNAME___/${PROJ}/g" "${PROJ}/CodeaTemplate.xcodeproj/project.pbxproj"
+sed -i .bak "s/CodeaTemplate/${PROJ}/g" "${PROJ}/CodeaTemplate.xcodeproj/project.pbxproj"
+rm "${PROJ}/CodeaTemplate.xcodeproj/project.pbxproj.bak"
+
+sed -i .bak "s/___PROJECTNAME___/${PROJ}/g" "${PROJ}/CodeaTemplate.xcodeproj/xcshareddata/xcschemes/CodeaTemplate.xcscheme"
+sed -i .bak "s/CodeaTemplate/${PROJ}/g" "${PROJ}/CodeaTemplate.xcodeproj/xcshareddata/xcschemes/CodeaTemplate.xcscheme"
+rm "${PROJ}/CodeaTemplate.xcodeproj/xcshareddata/xcschemes/CodeaTemplate.xcscheme.bak"
+
+sed -i .bak "s/Project.codea/${PROJ}.codea/g" "${PROJ}/CodeaTemplate/CodifyAppDelegate.m"
+rm "${PROJ}/CodeaTemplate/CodifyAppDelegate.m.bak"
+
+mv "${PROJ}/CodeaTemplate.xcodeproj/xcshareddata/xcschemes/CodeaTemplate.xcscheme" "${PROJ}/CodeaTemplate.xcodeproj/xcshareddata/xcschemes/${PROJ}.xcscheme"
+mv "${PROJ}/CodeaTemplate.xcodeproj" "${PROJ}/${PROJ}.xcodeproj"
+mv "${PROJ}/CodeaTemplate.codea" "${PROJ}/${PROJ}.codea"
+mv "${PROJ}/CodeaTemplate" "${PROJ}/${PROJ}"
 
 #Copy Resources over
-#cp $ICON_FILE "$1/Icon.png"
+#cp $ICON_FILE "${PROJ}/Icon.png"
 
-echo "created xcode project in ./$1/CodeaTemplate.xcodeproj"
+echo "created xcode project in ./${PROJ}/${PROJ}.xcodeproj"

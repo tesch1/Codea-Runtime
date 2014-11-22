@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA2EE4C21A21534C0086BE00 /* CodeaTemplate.codea in Resources */ = {isa = PBXBuildFile; fileRef = AA2EE4C11A21534C0086BE00 /* CodeaTemplate.codea */; };
 		DB7123C9158036E100970405 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB7123C8158036E100970405 /* Icon-72@2x.png */; };
 		DB7123CC158036E500970405 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = DB7123CB158036E500970405 /* Icon-72.png */; };
 		DB7123CE158036EC00970405 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DB7123CD158036EC00970405 /* Default-Landscape@2x~ipad.png */; };
@@ -17,7 +18,6 @@
 		FC10E9A614D11879004B5EFE /* EditorBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = FC10E9A514D11879004B5EFE /* EditorBuffer.m */; };
 		FC10E9A914D11A60004B5EFE /* Class.lua in Resources */ = {isa = PBXBuildFile; fileRef = FC10E9A714D11A60004B5EFE /* Class.lua */; };
 		FC10E9AA14D11A60004B5EFE /* LuaSandbox.lua in Resources */ = {isa = PBXBuildFile; fileRef = FC10E9A814D11A60004B5EFE /* LuaSandbox.lua */; };
-		FC10E9AC14D11CB1004B5EFE /* Project.codea in Resources */ = {isa = PBXBuildFile; fileRef = FC10E9AB14D11CB1004B5EFE /* Project.codea */; };
 		FC10EA1314D154AF004B5EFE /* CircleShader.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC10E9BB14D1542B004B5EFE /* CircleShader.plist */; };
 		FC10EA1514D154AF004B5EFE /* CircleShaderNoStroke.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC10E9BD14D1542B004B5EFE /* CircleShaderNoStroke.plist */; };
 		FC10EA1B14D154AF004B5EFE /* LineRoundCapShader.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC10E9C314D1542B004B5EFE /* LineRoundCapShader.plist */; };
@@ -257,6 +257,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AA2EE4C11A21534C0086BE00 /* CodeaTemplate.codea */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CodeaTemplate.codea; sourceTree = "<group>"; };
 		DB7123C8158036E100970405 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
 		DB7123CB158036E500970405 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		DB7123CD158036EC00970405 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
@@ -485,7 +486,6 @@
 		FC10E9A514D11879004B5EFE /* EditorBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditorBuffer.m; sourceTree = "<group>"; };
 		FC10E9A714D11A60004B5EFE /* Class.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Class.lua; path = Codify/Resources/Lua/Class.lua; sourceTree = SOURCE_ROOT; };
 		FC10E9A814D11A60004B5EFE /* LuaSandbox.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LuaSandbox.lua; path = Codify/Resources/Lua/LuaSandbox.lua; sourceTree = SOURCE_ROOT; };
-		FC10E9AB14D11CB1004B5EFE /* Project.codea */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Project.codea; sourceTree = "<group>"; };
 		FC10E9B914D1542B004B5EFE /* BasicTransform.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = BasicTransform.vsh; sourceTree = "<group>"; };
 		FC10E9BA14D1542B004B5EFE /* CircleShader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = CircleShader.fsh; sourceTree = "<group>"; };
 		FC10E9BB14D1542B004B5EFE /* CircleShader.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CircleShader.plist; sourceTree = "<group>"; };
@@ -1259,6 +1259,7 @@
 		FC65BDD214CEB3CE002B1B67 = {
 			isa = PBXGroup;
 			children = (
+				AA2EE4C11A21534C0086BE00 /* CodeaTemplate.codea */,
 				FC3628DA154408C9004F6731 /* LICENSE-Codea.txt */,
 				FC65BDE714CEB3CE002B1B67 /* Classes */,
 				FC65BDE014CEB3CE002B1B67 /* Frameworks */,
@@ -1310,7 +1311,6 @@
 		FC65BDE714CEB3CE002B1B67 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				FC10E9AB14D11CB1004B5EFE /* Project.codea */,
 				FC65BDF014CEB3CE002B1B67 /* AppDelegate.h */,
 				FC65BDF114CEB3CE002B1B67 /* AppDelegate.m */,
 				FC65BDE814CEB3CE002B1B67 /* Supporting Files */,
@@ -1948,6 +1948,7 @@
 				FC10EA4F14D154C1004B5EFE /* RectShaderNoStrokeNoSmooth.fsh in Resources */,
 				FC10EA5014D154C1004B5EFE /* SimpleLineShader.fsh in Resources */,
 				FC10EA5114D154C1004B5EFE /* SpriteShader.fsh in Resources */,
+				AA2EE4C21A21534C0086BE00 /* CodeaTemplate.codea in Resources */,
 				FC10EA5214D154C1004B5EFE /* SpriteShaderNoTint.fsh in Resources */,
 				FC10EA5314D154C1004B5EFE /* SpriteShaderTintAlpha.fsh in Resources */,
 				FC10EA5414D154C1004B5EFE /* SpriteShaderTintRGB.fsh in Resources */,
@@ -1958,7 +1959,6 @@
 				FC65C1AE14CEC5AB002B1B67 /* CaptureVideoPanel.xib in Resources */,
 				FC10E9A914D11A60004B5EFE /* Class.lua in Resources */,
 				FC10E9AA14D11A60004B5EFE /* LuaSandbox.lua in Resources */,
-				FC10E9AC14D11CB1004B5EFE /* Project.codea in Resources */,
 				FC10EA1314D154AF004B5EFE /* CircleShader.plist in Resources */,
 				FC10EA1514D154AF004B5EFE /* CircleShaderNoStroke.plist in Resources */,
 				FC10EA1B14D154AF004B5EFE /* LineRoundCapShader.plist in Resources */,
