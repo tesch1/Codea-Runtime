@@ -13,26 +13,28 @@ if [ "$1" = "CodeaTemplate" ] ; then
     exit
 fi
 
-PROJ="${1//[[:space:]]/}"
+PROJPATH="$1"
+PROJ=`basename "$1"`
+PROJ=${PROJ//[[:space:]]/}
 
-cp -r CodeaTemplate "${PROJ}"
-sed -i .bak "s/___PROJECTNAME___/${PROJ}/g" "${PROJ}/CodeaTemplate.xcodeproj/project.pbxproj"
-sed -i .bak "s/CodeaTemplate/${PROJ}/g" "${PROJ}/CodeaTemplate.xcodeproj/project.pbxproj"
-rm "${PROJ}/CodeaTemplate.xcodeproj/project.pbxproj.bak"
+cp -r CodeaTemplate "${PROJPATH}"
+sed -i .bak "s/___PROJECTNAME___/${PROJ}/g" "${PROJPATH}/CodeaTemplate.xcodeproj/project.pbxproj"
+sed -i .bak "s/CodeaTemplate/${PROJ}/g" "${PROJPATH}/CodeaTemplate.xcodeproj/project.pbxproj"
+rm "${PROJPATH}/CodeaTemplate.xcodeproj/project.pbxproj.bak"
 
-sed -i .bak "s/___PROJECTNAME___/${PROJ}/g" "${PROJ}/CodeaTemplate.xcodeproj/xcshareddata/xcschemes/CodeaTemplate.xcscheme"
-sed -i .bak "s/CodeaTemplate/${PROJ}/g" "${PROJ}/CodeaTemplate.xcodeproj/xcshareddata/xcschemes/CodeaTemplate.xcscheme"
-rm "${PROJ}/CodeaTemplate.xcodeproj/xcshareddata/xcschemes/CodeaTemplate.xcscheme.bak"
+sed -i .bak "s/___PROJECTNAME___/${PROJ}/g" "${PROJPATH}/CodeaTemplate.xcodeproj/xcshareddata/xcschemes/CodeaTemplate.xcscheme"
+sed -i .bak "s/CodeaTemplate/${PROJ}/g" "${PROJPATH}/CodeaTemplate.xcodeproj/xcshareddata/xcschemes/CodeaTemplate.xcscheme"
+rm "${PROJPATH}/CodeaTemplate.xcodeproj/xcshareddata/xcschemes/CodeaTemplate.xcscheme.bak"
 
-sed -i .bak "s/Project.codea/${PROJ}.codea/g" "${PROJ}/CodeaTemplate/CodifyAppDelegate.m"
-rm "${PROJ}/CodeaTemplate/CodifyAppDelegate.m.bak"
+sed -i .bak "s/Project.codea/${PROJ}.codea/g" "${PROJPATH}/CodeaTemplate/CodifyAppDelegate.m"
+rm "${PROJPATH}/CodeaTemplate/CodifyAppDelegate.m.bak"
 
-mv "${PROJ}/CodeaTemplate.xcodeproj/xcshareddata/xcschemes/CodeaTemplate.xcscheme" "${PROJ}/CodeaTemplate.xcodeproj/xcshareddata/xcschemes/${PROJ}.xcscheme"
-mv "${PROJ}/CodeaTemplate.xcodeproj" "${PROJ}/${PROJ}.xcodeproj"
-mv "${PROJ}/CodeaTemplate.codea" "${PROJ}/${PROJ}.codea"
-mv "${PROJ}/CodeaTemplate" "${PROJ}/${PROJ}"
+mv "${PROJPATH}/CodeaTemplate.xcodeproj/xcshareddata/xcschemes/CodeaTemplate.xcscheme" "${PROJPATH}/CodeaTemplate.xcodeproj/xcshareddata/xcschemes/${PROJ}.xcscheme"
+mv "${PROJPATH}/CodeaTemplate.xcodeproj" "${PROJPATH}/${PROJ}.xcodeproj"
+mv "${PROJPATH}/CodeaTemplate.codea" "${PROJPATH}/${PROJ}.codea"
+mv "${PROJPATH}/CodeaTemplate" "${PROJPATH}/${PROJ}"
 
 #Copy Resources over
-#cp $ICON_FILE "${PROJ}/Icon.png"
+#cp $ICON_FILE "${PROJPATH}/Icon.png"
 
-echo "created xcode project in ./${PROJ}/${PROJ}.xcodeproj"
+echo "created xcode project in ./${PROJPATH}/${PROJ}.xcodeproj"

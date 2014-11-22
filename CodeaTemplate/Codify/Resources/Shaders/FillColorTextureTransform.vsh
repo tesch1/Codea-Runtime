@@ -35,7 +35,7 @@ void main()
     if (SpriteMode)
     {             
         vColor = FillColor;
-        vTexCoord = highp vec2(TexCoord.s, 1.0-TexCoord.t);        
+        vTexCoord = vec2(TexCoord.s, 1.0-TexCoord.t);
     }
     else
     {
