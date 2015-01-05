@@ -8,25 +8,30 @@ if [ "x$1" = "x" ] ; then
     exit
 fi
 
-if [ "$1" = "CodeaTemplate" ] ; then
-    echo "cant make the template from the template"
-    exit
-fi
-
 PROJPATH="$1"
 PROJ=`basename "$1"`
 PROJ=${PROJ//[[:space:]]/}
 
+if [ "$PROJ" = "CodeaTemplate" ] ; then
+    echo "cant make the template from the template"
+    exit
+fi
+
+if [ -x "$PROJ" ] ; then
+    echo "cant overwrite existing project '$PROJPATH'"
+    exit
+fi
+
 cp -r CodeaTemplate "${PROJPATH}"
-sed -i .bak "s/___PROJECTNAME___/${PROJ}/g" "${PROJPATH}/CodeaTemplate.xcodeproj/project.pbxproj"
-sed -i .bak "s/CodeaTemplate/${PROJ}/g" "${PROJPATH}/CodeaTemplate.xcodeproj/project.pbxproj"
+sed -i.bak "s/___PROJECTNAME___/${PROJ}/g" "${PROJPATH}/CodeaTemplate.xcodeproj/project.pbxproj"
+sed -i.bak "s/CodeaTemplate/${PROJ}/g"     "${PROJPATH}/CodeaTemplate.xcodeproj/project.pbxproj"
 rm "${PROJPATH}/CodeaTemplate.xcodeproj/project.pbxproj.bak"
 
-sed -i .bak "s/___PROJECTNAME___/${PROJ}/g" "${PROJPATH}/CodeaTemplate.xcodeproj/xcshareddata/xcschemes/CodeaTemplate.xcscheme"
-sed -i .bak "s/CodeaTemplate/${PROJ}/g" "${PROJPATH}/CodeaTemplate.xcodeproj/xcshareddata/xcschemes/CodeaTemplate.xcscheme"
+sed -i.bak "s/___PROJECTNAME___/${PROJ}/g" "${PROJPATH}/CodeaTemplate.xcodeproj/xcshareddata/xcschemes/CodeaTemplate.xcscheme"
+sed -i.bak "s/CodeaTemplate/${PROJ}/g" "${PROJPATH}/CodeaTemplate.xcodeproj/xcshareddata/xcschemes/CodeaTemplate.xcscheme"
 rm "${PROJPATH}/CodeaTemplate.xcodeproj/xcshareddata/xcschemes/CodeaTemplate.xcscheme.bak"
 
-sed -i .bak "s/Project.codea/${PROJ}.codea/g" "${PROJPATH}/CodeaTemplate/CodifyAppDelegate.m"
+sed -i.bak "s/Project.codea/${PROJ}.codea/g" "${PROJPATH}/CodeaTemplate/CodifyAppDelegate.m"
 rm "${PROJPATH}/CodeaTemplate/CodifyAppDelegate.m.bak"
 
 mv "${PROJPATH}/CodeaTemplate.xcodeproj/xcshareddata/xcschemes/CodeaTemplate.xcscheme" "${PROJPATH}/CodeaTemplate.xcodeproj/xcshareddata/xcschemes/${PROJ}.xcscheme"
@@ -37,4 +42,4 @@ mv "${PROJPATH}/CodeaTemplate" "${PROJPATH}/${PROJ}"
 #Copy Resources over
 #cp $ICON_FILE "${PROJPATH}/Icon.png"
 
-echo "created xcode project in ./${PROJPATH}/${PROJ}.xcodeproj"
+echo "created xcode project in ${PROJPATH}/${PROJ}.xcodeproj"
